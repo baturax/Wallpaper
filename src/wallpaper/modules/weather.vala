@@ -59,7 +59,7 @@ class Weather {
             label.set_label(time+rain+is_day+apparent_temperature);
 
         } catch (GLib.Error e) {
-            stderr.printf(e.message);
+            Things.warning(e.message);
         }
 
 
