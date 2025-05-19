@@ -4,7 +4,10 @@ using Json;
 
 class Lyric {
 
-    public static Gtk.Label lyrics() {
+    public static Gtk.Widget lyrics() {
+        Gtk.ScrolledWindow scroll_win = new Gtk.ScrolledWindow();
+
+
         Gtk.Label label = new Gtk.Label("");
         label.set_valign(Gtk.Align.CENTER);
         label.set_halign(Gtk.Align.END);
@@ -13,6 +16,8 @@ class Lyric {
 
         Things.apply_css(Values.Css.CSS_FILE, label, "lyrics-label");
 
+        scroll_win.set_child(label);
+
         getLyric(label);
 
         Timeout.add_seconds(5, () => {
@@ -20,7 +25,7 @@ class Lyric {
             return true;
         });
 
-        return label;
+        return scroll_win;
     }
 
     private static Gtk.Label getLyric(Gtk.Label label) {
