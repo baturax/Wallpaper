@@ -6,7 +6,7 @@ namespace Values {
    }
 
    class Image {
-      public const string BG_IMAGE = "/home/bai/Pictures/Wallpaper/arch.png";
+      public const string BG_IMAGE = "/home/bai/Pictures/Wallpaper/31.jpg";
    }
 
    class Weather {
@@ -18,6 +18,10 @@ namespace Values {
       public const string ARTIST_COMMAND = "playerctl metadata --format '{{ artist }}'";
       public const string TITLE_COMMAND = "playerctl metadata --format '{{ title }}'";
       
+   }
+
+   class Css {
+      public const string CSS_FILE = "/home/bai/Projects/baturax/background/src/wallpaper/Wallpaper.css";
    }
 
 }

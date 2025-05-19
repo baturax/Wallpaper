@@ -8,6 +8,14 @@ class Weather {
         Gtk.Label label = new Gtk.Label("whatsapp");
         label.set_halign(Gtk.Align.START);
         label.set_valign(Gtk.Align.START);
+        label.set_margin_top(30);
+        label.set_margin_start(30);
+        label.set_selectable(true);
+        label.set_focusable(false);
+        label.set_opacity(1.0f);
+
+        Things.apply_css(Values.Css.CSS_FILE, label, "weather-label");
+
         getWeather(label);
 
         GLib.Timeout.add_seconds(21600, () => {
@@ -56,7 +64,13 @@ class Weather {
 
             string apparent_temperature = "%.1f".printf(apparent_temperature_api);
 
-            label.set_label(time+rain+is_day+apparent_temperature);
+            label.set_label(time
+                + "\n" +
+                rain
+                + "\n" +
+                is_day
+                + "\n" + 
+                apparent_temperature);
 
         } catch (GLib.Error e) {
             Things.warning(e.message);
