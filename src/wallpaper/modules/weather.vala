@@ -10,6 +10,11 @@ class Weather {
         label.set_valign(Gtk.Align.START);
         getWeather(label);
 
+        GLib.Timeout.add_seconds(21600, () => {
+            getWeather(label);
+            return true;
+        });
+
         return label;
     }
 
