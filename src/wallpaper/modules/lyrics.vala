@@ -9,6 +9,9 @@ class Lyric {
         label.set_valign(Gtk.Align.CENTER);
         label.set_halign(Gtk.Align.END);
         label.set_margin_end(30);
+        label.set_opacity(1.0f);
+
+        Things.apply_css(Values.Css.CSS_FILE, label, "lyrics-label");
 
         getLyric(label);
 
