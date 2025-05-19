@@ -6,8 +6,9 @@ class Lyric {
 
     public static Gtk.Label lyrics() {
         Gtk.Label label = new Gtk.Label("");
-        label.set_valign(Gtk.Align.START);
+        label.set_valign(Gtk.Align.CENTER);
         label.set_halign(Gtk.Align.END);
+        label.set_margin_end(30);
 
         getLyric(label);
 
