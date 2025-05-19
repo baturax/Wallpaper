@@ -17,6 +17,7 @@ public class Wallpaper: Gtk.Application {
       Gtk.Overlay overlay = new Gtk.Overlay();
 
       overlay.set_child(Image.image());
+      overlay.add_overlay(Weather.weather());
 
       window.set_child(overlay);
       window.present();
