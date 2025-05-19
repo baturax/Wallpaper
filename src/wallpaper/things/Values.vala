@@ -14,4 +14,10 @@ namespace Values {
       public const string LONG   = "28.9784";
    }
 
+   class Lyrics {
+      public const string ARTIST_COMMAND = "playerctl metadata --format '{{ artist }}'";
+      public const string TITLE_COMMAND = "playerctl metadata --format '{{ title }}'";
+      
+   }
+
 }

@@ -11,7 +11,8 @@ source = files(
   './things/Things.vala',
   './things/Values.vala',
   './modules/image.vala',
-  './modules/weather.vala'
+  './modules/weather.vala',
+  './modules/lyrics.vala'
 )
 
 executable(
