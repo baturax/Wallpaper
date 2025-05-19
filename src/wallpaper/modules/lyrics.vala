@@ -33,13 +33,16 @@ class Lyric {
         session.send_message(message);
         string res = (string) message.response_body.data;
 
-        parser.load_from_data(res, -1);
-        Json.Node root = parser.get_root();
-        Json.Object obj = root.get_object();
-
-        string plainlyrics = obj.get_string_member("plainLyrics");
-        label.set_label(plainlyrics);
-
+        try {
+            parser.load_from_data(res, -1);
+            Json.Node root = parser.get_root();
+            Json.Object obj = root.get_object();
+        
+            string plainlyrics = obj.get_string_member("plainLyrics");
+            label.set_label(plainlyrics);
+        } catch (GLib.Error e) {
+            //  Do Nothing
+        }
 
         return label;
     }
