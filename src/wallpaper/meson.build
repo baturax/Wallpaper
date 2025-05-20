@@ -12,7 +12,8 @@ source = files(
   './things/Values.vala',
   './modules/image.vala',
   './modules/weather.vala',
-  './modules/lyrics.vala'
+  './modules/lyrics.vala',
+  './modules/whoami.vala'
 )
 
 executable(
