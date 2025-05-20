@@ -10,7 +10,6 @@ class Weather {
         label.set_valign(Gtk.Align.START);
         label.set_margin_top(30);
         label.set_margin_start(30);
-        label.set_selectable(true);
         label.set_focusable(false);
         label.set_opacity(1.0f);
 
