@@ -40,12 +40,10 @@ class Weather {
             var root_obj = parser.get_root().get_object();
             var current = root_obj.get_object_member("current");
 
-            string time_api = current.get_string_member("time");
             double rain_api = current.get_double_member("rain");
             double is_day_api = current.get_double_member("is_day");
             double apparent_temperature_api = current.get_double_member("apparent_temperature");
 
-            string time = time_api.replace("T", " ");
 
             string rain = " ";
             if (rain_api == 0) {
@@ -61,10 +59,9 @@ class Weather {
                 is_day = "🌙";
             }
 
-            string apparent_temperature = "%.1f".printf(apparent_temperature_api);
+            string apparent_temperature = "%.1f 󰔄 ".printf(apparent_temperature_api);
 
-            label.set_label(time
-                + "\n" +
+            label.set_label(
                 rain
                 + "\n" +
                 is_day
