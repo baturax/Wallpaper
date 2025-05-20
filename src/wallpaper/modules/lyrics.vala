@@ -13,6 +13,7 @@ class Lyric {
         label.set_halign(Gtk.Align.END);
         label.set_margin_end(30);
         label.set_opacity(1.0f);
+        label.set_selectable(true);
 
         Things.apply_css(Values.Css.CSS_FILE, label, "lyrics-label");
 
