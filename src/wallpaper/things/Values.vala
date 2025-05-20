@@ -6,7 +6,7 @@ namespace Values {
    }
 
    class Image {
-      public const string BG_IMAGE = "/home/bai/Pictures/Wallpaper/arch.jpg";
+      public const string BG_IMAGE = "/home/bai/Pictures/Wallpaper/image.jpg";
    }
 
    class Weather {
