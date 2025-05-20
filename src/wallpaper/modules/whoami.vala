@@ -13,8 +13,18 @@ class User {
       Things.apply_css(css, all_boxes, "all_boxes");
 
       all_boxes.append(leftTop());
+      all_boxes.append(centerTwoBox());
 
       return all_boxes;
+   }
+
+   private static Gtk.Box centerTwoBox() {
+      Gtk.Box box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
+
+      box.append(Weather.weather());
+
+      return box;
+
    }
 
    private static Gtk.Box leftTop() {
@@ -41,3 +51,4 @@ class User {
    }
 
 }
+
