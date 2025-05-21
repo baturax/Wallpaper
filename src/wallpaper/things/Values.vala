@@ -24,4 +24,13 @@ namespace Values {
       public const string CSS_FILE = "/home/bai/Projects/baturax/background/src/wallpaper/Wallpaper.css";
    }
 
+   class WhoAmI {
+      public const string POWEROFF_COMMAND = "poweroff";
+      public const string REBOOT_COMMAND = "reboot";
+      public const string LOCK_COMMAND = "";
+      public const string SUSPEND_COMMAND = "systemctl suspend";
+      public const string LOGOUT_COMMAND = "niri msg action quit";
+   }
+
+
 }

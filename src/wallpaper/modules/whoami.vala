@@ -1,7 +1,6 @@
 using Gtk;
 
 class User {
-   public const string css = "/home/bai/Projects/baturax/background/src/wallpaper/Wallpaper.css";
 
    public static Gtk.Box everything() {
       Gtk.Box box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 2);
@@ -20,7 +19,7 @@ class User {
 
       box.set_size_request(700, 380);
 
-      Things.apply_css(css, box, "not-everything");
+      Things.apply_css(Values.Css.CSS_FILE, box, "not-everything");
 
       box.append(leftTop());
       box.append(centerTwoBox());
@@ -31,7 +30,7 @@ class User {
       Gtk.Box box = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
       box.set_size_request(-1, 380);
 
-      Things.apply_css(css, box, "powers");
+      Things.apply_css(Values.Css.CSS_FILE, box, "powers");
 
       Gtk.Button power_button = new Gtk.Button.from_icon_name("system-shutdown");
       Gtk.Button reboot_button = new Gtk.Button.from_icon_name("system-reboot");
@@ -40,23 +39,23 @@ class User {
       Gtk.Button logout_button = new Gtk.Button.from_icon_name("system-log-out");
 
       power_button.clicked.connect(() => {
-         Things.dialog("SYSTEM WILL SHUTDOWN, ARE YOU SURE?", "poweroff", "Shutdown Cancelled", "", "cancel", "Shutdown Succesfull", "Will shutdown in 3 seconds", "ok");
+         Things.dialog("SYSTEM WILL SHUTDOWN, ARE YOU SURE?", Values.WhoAmI.POWEROFF_COMMAND, "Shutdown Cancelled", "", "cancel", "Shutdown Succesfull", "Will shutdown in 3 seconds", "ok");
       });
 
       reboot_button.clicked.connect(() => {
-         Things.dialog("SYSTEM WILL REBOOT, ARE YOU SURE?", "reboot", "Reboot Cancelled", "", "cancel", "Reboot Succesfull", "Will reboot in 3 seconds", "ok");
+         Things.dialog("SYSTEM WILL REBOOT, ARE YOU SURE?", Values.WhoAmI.REBOOT_COMMAND, "Reboot Cancelled", "", "cancel", "Reboot Succesfull", "Will reboot in 3 seconds", "ok");
       });
 
       lock_button.clicked.connect(() => {
-         Things.dialog("SYSTEM WILL LOCK, ARE YOU SURE?", "//NOT IMplemented", "Lock Cancelled", "", "cancel", "Lock Succesfull", "Will lock in 3 seconds", "ok");
+         Things.dialog("SYSTEM WILL LOCK, ARE YOU SURE?", Values.WhoAmI.LOCK_COMMAND, "Lock Cancelled", "", "cancel", "Lock Succesfull", "Will lock in 3 seconds", "ok");
       });
 
       suspend_button.clicked.connect(() => {
-         Things.dialog("SYSTEM WILL SUSPEND, ARE YOU SURE?", "systemctl suspend", "Suspend Cancelled", "", "cancel", "Suspend Succesfull", "Will suspend in 3 seconds", "ok");
+         Things.dialog("SYSTEM WILL SUSPEND, ARE YOU SURE?", Values.WhoAmI.SUSPEND_COMMAND, "Suspend Cancelled", "", "cancel", "Suspend Succesfull", "Will suspend in 3 seconds", "ok");
       });
 
       logout_button.clicked.connect(() => {
-         Things.dialog("SYSTEM WILL LOGOUT, ARE YOU SURE?", "niri msg action quit", "Logout Cancelled", "", "cancel", "Logout Succesfull", "Will logout in 3 seconds", "ok");
+         Things.dialog("SYSTEM WILL LOGOUT, ARE YOU SURE?", Values.WhoAmI.LOGOUT_COMMAND, "Logout Cancelled", "", "cancel", "Logout Succesfull", "Will logout in 3 seconds", "ok");
       });
 
       Controls.click(reboot_button, "");
@@ -100,7 +99,7 @@ class User {
       img.set_size_request(250, 250);
 
       Gtk.Label zazu_label = new Gtk.Label("Zazu");
-      Things.apply_css(css, zazu_label, "zazu-label");
+      Things.apply_css(Values.Css.CSS_FILE, zazu_label, "zazu-label");
 
       Gtk.Label cat_label = new Gtk.Label("The cat");
 
