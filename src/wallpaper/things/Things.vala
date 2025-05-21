@@ -25,16 +25,34 @@ class Things {
       return dialog;
    }
 
-   public static Notify.Notification notification(string app_name, string summary, string body, string icon) {
-      Notify.init("ba");
-      Notify.Notification notification = new Notify.Notification(summary, body, icon);
-      try {
-         notification.show();
-      } catch (Error e) {
-         warning(e.message);
-      }
+   public static GLib.Notification notification(string app_name, string summary, string body, string icon) {
+   
+      GLib.Notification notification = new GLib.Notification("test");
 
       return notification;
+   }
+
+   public static Gtk.MessageDialog dialog(string message, string command) {
+      Gtk.MessageDialog dialog = new Gtk.MessageDialog(null, Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.OK_CANCEL, message);
+
+      dialog.show();
+
+      dialog.response.connect((response) => {
+         
+         if (response == ResponseType.CANCEL) {
+            dialog.close();
+         } else if (response == ResponseType.OK) {
+            dialog.close();
+            try {
+               GLib.Process.spawn_command_line_sync(command);
+            } catch (GLib.SpawnError e) {
+               Things.warning(e.message);
+            }
+         }
+      });
+
+      return dialog;
+
    }
 
 }
