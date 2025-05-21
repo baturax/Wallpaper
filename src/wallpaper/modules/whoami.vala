@@ -21,7 +21,7 @@ class User {
    private static Gtk.Box centerTwoBox() {
       Gtk.Box box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
 
-      box.append(Weather.weather());
+      box.append(Weather.weather_box());
 
       return box;
 

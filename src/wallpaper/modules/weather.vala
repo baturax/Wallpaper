@@ -3,7 +3,18 @@ using Soup;
 using Json;
 
 class Weather {
-   public static Gtk.Label weather() {
+
+   public static Gtk.Box weather_box() {
+      Gtk.Box box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
+      box.set_halign(Gtk.Align.START);
+      box.set_halign(Gtk.Align.START);
+
+      box.append(weather());
+
+      return box;
+   }
+
+   private static Gtk.Label weather() {
       Gtk.Label label = new Gtk.Label("whatsapp");
       label.set_halign(Gtk.Align.START);
       label.set_valign(Gtk.Align.START);
