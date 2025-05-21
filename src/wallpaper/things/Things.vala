@@ -25,14 +25,22 @@ class Things {
       return dialog;
    }
 
-   public static GLib.Notification notification(string app_name, string summary, string body, string icon) {
-   
-      GLib.Notification notification = new GLib.Notification("test");
-
+   public static Notify.Notification notification(string summary, string body, string icon) {
+      
+      Notify.init("System");
+      Notify.Notification notification = new Notify.Notification(summary, body, icon);
+      notification.set_urgency(Notify.Urgency.LOW);
+      
+      try {
+         notification.show();
+      } catch (GLib.Error e) {
+         warning(e.message);
+      }
+      
       return notification;
    }
 
-   public static Gtk.MessageDialog dialog(string message, string command) {
+   public static Gtk.MessageDialog dialog(string message, string command, string cancel_summary, string cancel_body, string cancel_icon, string done_summary, string done_body, string done_icon) {
       Gtk.MessageDialog dialog = new Gtk.MessageDialog(null, Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.OK_CANCEL, message);
 
       dialog.show();
@@ -40,14 +48,22 @@ class Things {
       dialog.response.connect((response) => {
          
          if (response == ResponseType.CANCEL) {
+            notification(cancel_summary, cancel_body, cancel_icon);
             dialog.close();
          } else if (response == ResponseType.OK) {
+            notification(done_summary, done_body, done_icon);
             dialog.close();
-            try {
-               GLib.Process.spawn_command_line_sync(command);
-            } catch (GLib.SpawnError e) {
-               Things.warning(e.message);
-            }
+            
+            GLib.Timeout.add_seconds(3, () => {
+               try {
+                  GLib.Process.spawn_command_line_async(command);
+                  return false;
+               } catch (GLib.SpawnError e) {
+                  warning(e.message);
+               }
+               return false;
+            });
+               
          }
       });
 

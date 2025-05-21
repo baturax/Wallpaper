@@ -39,25 +39,24 @@ class User {
       Gtk.Button suspend_button = new Gtk.Button.from_icon_name("system-suspend");
       Gtk.Button logout_button = new Gtk.Button.from_icon_name("system-log-out");
 
-
       power_button.clicked.connect(() => {
-         Things.dialog("YOU SURE WANT TO POWEROFF?", "poweroff");
+         Things.dialog("SYSTEM WILL SHUTDOWN, ARE YOU SURE?", "poweroff", "Shutdown Cancelled", "", "cancel", "Shutdown Succesfull", "Will shutdown in 3 seconds", "ok");
       });
 
       reboot_button.clicked.connect(() => {
-         Things.dialog("YOU SURE WANT TO REBOOT?", "zenity --entry");
+         Things.dialog("SYSTEM WILL REBOOT, ARE YOU SURE?", "reboot", "Reboot Cancelled", "", "cancel", "Reboot Succesfull", "Will reboot in 3 seconds", "ok");
       });
 
       lock_button.clicked.connect(() => {
-         Things.dialog("YOU SURE WANT TO LOCK?", "zenity --calendar");
+         Things.dialog("SYSTEM WILL LOCK, ARE YOU SURE?", "//NOT IMplemented", "Lock Cancelled", "", "cancel", "Lock Succesfull", "Will lock in 3 seconds", "ok");
       });
 
       suspend_button.clicked.connect(() => {
-         Things.dialog("YOU SURE WANT TO SUSPEND?", "zenity --error");
+         Things.dialog("SYSTEM WILL SUSPEND, ARE YOU SURE?", "systemctl suspend", "Suspend Cancelled", "", "cancel", "Suspend Succesfull", "Will suspend in 3 seconds", "ok");
       });
 
       logout_button.clicked.connect(() => {
-         Things.dialog("YOU SURE WANT TO SUSPEND?", "zenity --info");
+         Things.dialog("SYSTEM WILL LOGOUT, ARE YOU SURE?", "niri msg action quit", "Logout Cancelled", "", "cancel", "Logout Succesfull", "Will logout in 3 seconds", "ok");
       });
 
       Controls.click(reboot_button, "");
