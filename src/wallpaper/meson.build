@@ -17,6 +17,12 @@ source = files(
   './modules/controls.vala'
 )
 
+install_data(
+  './Wallpaper.css',
+  install_dir: '/home/bai/.config/BaiBar'
+)
+
+
 executable(
   'baiwallpaper',
   source,

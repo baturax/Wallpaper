@@ -21,7 +21,7 @@ namespace Values {
    }
 
    class Css {
-      public const string CSS_FILE = "/home/bai/Projects/baturax/background/src/wallpaper/Wallpaper.css";
+      public const string CSS_FILE = "/home/bai/.config/BaiBar/Wallpaper.css";
    }
 
    class WhoAmI {
