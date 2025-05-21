@@ -1,53 +1,16 @@
 
 class Controls {
 
-   public static Gtk.EventControllerScroll allScrolls(Gtk.Label label, string scroll_up, string scroll_down) {
+   public static void click(Gtk.Button button, string command) {
       
-      Gtk.EventControllerScroll scroll = new Gtk.EventControllerScroll(Gtk.EventControllerScrollFlags.VERTICAL);
-
-      scroll.scroll.connect((dx, dy) => {
-         if (dy < 0) {
-            try {
-               GLib.Process.spawn_command_line_async(scroll_up);
-            } catch (GLib.SpawnError e) {
-               Things.warning(e.message);
-            }
-         } else if (dy > 0) {
-            try {
-               GLib.Process.spawn_command_line_async(scroll_down);
-            } catch(GLib.SpawnError e) {
-               Things.warning(e.message);
-            }
-         }
-         return true;
-      });
-      
-      label.add_controller(scroll);
-      return scroll;
-
-   }
-
-   
-   public static Gtk.GestureClick allGestures(uint which_button, string command, Gtk.Widget what_clicked) {
-      
-      Gtk.GestureClick gesture = new Gtk.GestureClick();
-
-      gesture.set_button(which_button);
-
-      gesture.pressed.connect(() => {
-         
+      button.clicked.connect(() => {
          try {
-            GLib.Process.spawn_command_line_async(command);
+            GLib.Process.spawn_command_line_sync(command);
          } catch (GLib.SpawnError e) {
             Things.warning(e.message);
          }
-
       });
 
-      what_clicked.add_controller(gesture);
-
-      
-      return gesture;
    }
 
 }
