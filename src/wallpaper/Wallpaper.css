@@ -8,11 +8,13 @@
     color: #ffd60a;
 }
 
-.all_boxes {
+.not-everything {
    background-color: #121212;
 }
 
-
+.powers {
+   background-color: #121212;
+}
 
 .zazu-label {
    font-size: 39px;
