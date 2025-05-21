@@ -21,4 +21,5 @@ executable(
   'baiwallpaper',
   source,
   dependencies: dependencies,
+  install: true
 )
