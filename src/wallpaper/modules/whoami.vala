@@ -39,6 +39,32 @@ class User {
       Gtk.Button suspend_button = new Gtk.Button.from_icon_name("system-suspend");
       Gtk.Button logout_button = new Gtk.Button.from_icon_name("system-log-out");
 
+
+      power_button.clicked.connect(() => {
+         Things.dialog("YOU SURE WANT TO POWEROFF?", "poweroff");
+      });
+
+      reboot_button.clicked.connect(() => {
+         Things.dialog("YOU SURE WANT TO REBOOT?", "zenity --entry");
+      });
+
+      lock_button.clicked.connect(() => {
+         Things.dialog("YOU SURE WANT TO LOCK?", "zenity --calendar");
+      });
+
+      suspend_button.clicked.connect(() => {
+         Things.dialog("YOU SURE WANT TO SUSPEND?", "zenity --error");
+      });
+
+      logout_button.clicked.connect(() => {
+         Things.dialog("YOU SURE WANT TO SUSPEND?", "zenity --info");
+      });
+
+      Controls.click(reboot_button, "");
+      Controls.click(lock_button, "");
+      Controls.click(suspend_button, "");
+      Controls.click(logout_button, "");
+
       power_button.set_size_request(50, 75);
       reboot_button.set_size_request(50, 75);
       lock_button.set_size_request(50, 75);
