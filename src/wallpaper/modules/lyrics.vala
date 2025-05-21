@@ -3,11 +3,19 @@ using Soup;
 using Json;
 
 class Lyric {
-   public static Gtk.Widget lyrics() {
+
+   public static Gtk.Box lyric_box() {
+      Gtk.Box box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
+      box.set_valign(Gtk.Align.CENTER);
+      box.set_halign(Gtk.Align.END);
+
+      box.append(lyrics());
+
+      return box;
+   }
+
+   private static Gtk.Label lyrics() {
       Gtk.Label label = new Gtk.Label("");
-      label.set_valign(Gtk.Align.CENTER);
-      label.set_halign(Gtk.Align.END);
-      label.set_margin_end(30);
       label.set_opacity(1.0f);
 
       Things.apply_css(Values.Css.CSS_FILE, label, "lyrics-label");
